@@ -1,0 +1,23 @@
+{
+    "name": "ilgala/laravel-otrs",
+    "description": "A OTRS bridge for Laravel5",
+    "type": "laravel-package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ilGala",
+            "email": "filippo.galante@b-ground.com"
+        },
+        {
+            "name": "Chiara",
+            "email": "chiara.omiciuolo@b-ground.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/contracts": "5.1.*|5.2.*|5.3.*",
+        "illuminate/support": "5.1.*|5.2.*|5.3.*",
+        "guzzlehttp/guzzle"  : "~5.0|~6.0"
+    }
+}
