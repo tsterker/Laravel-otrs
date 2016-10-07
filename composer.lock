@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "789908f2f45cab2a261d44b61b9d34e8",
-    "content-hash": "6746921f83e4d4e77db99a6b2d0095c8",
+    "hash": "0a3402c43430ceb1fb298c36777414ef",
+    "content-hash": "9d23e1f98fae6f2ccd8ebdecea36e70e",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -73,6 +73,65 @@
                 "string"
             ],
             "time": "2016-05-12 17:23:41"
+        },
+        {
+            "name": "graham-campbell/manager",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GrahamCampbell/Laravel-Manager.git",
+                "reference": "ea87ba63973bfd7a69d9b49081a08170b2c2d75f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Manager/zipball/ea87ba63973bfd7a69d9b49081a08170b2c2d75f",
+                "reference": "ea87ba63973bfd7a69d9b49081a08170b2c2d75f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "5.1.*|5.2.*|5.3.*",
+                "illuminate/support": "5.1.*|5.2.*|5.3.*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "graham-campbell/testbench-core": "^1.1",
+                "mockery/mockery": "^0.9.4",
+                "phpunit/phpunit": "^4.8|^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GrahamCampbell\\Manager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@alt-three.com"
+                }
+            ],
+            "description": "Manager Provides Some Manager Functionality For Laravel 5",
+            "keywords": [
+                "Graham Campbell",
+                "GrahamCampbell",
+                "Laravel Manager",
+                "Laravel-Manager",
+                "connector",
+                "framework",
+                "interface",
+                "laravel",
+                "manager"
+            ],
+            "time": "2016-08-04 11:12:46"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -300,12 +359,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "2139d8620a03c4ee161208fd258da946531d9399"
+                "reference": "cb1286e19e1ff5ab723f6ed7ef7d1e738204c90e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/2139d8620a03c4ee161208fd258da946531d9399",
-                "reference": "2139d8620a03c4ee161208fd258da946531d9399",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/cb1286e19e1ff5ab723f6ed7ef7d1e738204c90e",
+                "reference": "cb1286e19e1ff5ab723f6ed7ef7d1e738204c90e",
                 "shasum": ""
             },
             "require": {
@@ -349,7 +408,7 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
-            "time": "2016-09-28 22:12:31"
+            "time": "2016-10-05 15:31:01"
         },
         {
             "name": "paragonie/random_compat",

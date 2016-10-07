@@ -15,7 +15,7 @@ namespace IlGala\LaravelOTRS;
  *
  * @author ilgala
  */
-interface OTRSGenericInterface
+interface GenericInterface
 {
 
     /**
