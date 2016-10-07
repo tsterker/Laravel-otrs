@@ -11,6 +11,7 @@
 
 namespace IlGala\LaravelOTRS;
 
+use IlGala\LaravelOTRS\Wrappers\WrapperInterface;
 use InvalidArgumentException;
 
 /**
@@ -59,25 +60,23 @@ class OTRSGenericInterface implements GenericInterface
     /**
      * @param AdapterInterface $adapter
      */
-    public function __construct(AdapterInterface $adapter, $config)
+    public function __construct(WrapperInterface $adapter, $config)
     {
-        if (!array_key_exists('username', $config)) {
-            throw new InvalidArgumentException('the option "username" is mandatory');
-        }
 
-        if (!array_key_exists('password', $config)) {
-            throw new InvalidArgumentException('the option "password" is mandatory');
-        }
+        $this->adapter = $adapter;
+        $this->username = $config['username'];
+        $this->password = $config['password'];
 
         if (!array_key_exists('webservice', $config)) {
             throw new InvalidArgumentException('the option "webservice" is mandatory');
         }
 
+        $this->webservice = $config['webservice'];
+
         if (!array_key_exists('url', $config)) {
             throw new InvalidArgumentException('the option "url" is mandatory');
         }
 
-        $this->adapter = $adapter;
         $this->url = $config['url'] . '/' . $this->otrs_interface . '/Webservice/' . $this->webservice;
         $this->operations = $config['operations'];
     }
@@ -102,7 +101,7 @@ class OTRSGenericInterface implements GenericInterface
         return $this->webservice;
     }
 
-    public function callOperation($operation, $data, $client)
+    public function callOperation($operation, $client = false, $data = [])
     {
         if (!array_key_exists($operation, $this->operations)) {
             throw new InvalidArgumentException('Cannot find the method {$method}');
@@ -110,11 +109,18 @@ class OTRSGenericInterface implements GenericInterface
 
         $login = $client ? 'CustomerUserLogin' : 'UserLogin';
 
-        $formatted_data = array_merge($data, [$login => $this->username, 'Password' => $this->password]);
+        if (array_key_exists('SessionId', $data)) {
+            $formatted_data = $data;
+        } else {
+            $formatted_data = array_merge($data, [$login => $this->username, 'Password' => $this->password]);
+        }
 
         $callback = $this->operations[$operation];
 
-        return $this->adapter->$callback['method'](sprintf('%s/' . $callback['route'], $this->url), $formatted_data);
+        $method = $callback['method'];
+        $url = $callback['url'];
+
+        return $this->adapter->$method(sprintf('%s/' . $url, $this->url), $formatted_data);
     }
 
 }

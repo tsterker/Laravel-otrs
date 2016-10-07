@@ -40,7 +40,7 @@ class GuzzleHttpWrapper implements WrapperInterface
      * @param array                $config
      * @param ClientInterface|null $client
      */
-    public function __construct(ClientInterface $client = null)
+    public function __construct($config, ClientInterface $client = null)
     {
         $this->client = $client ? : new Client();
     }
@@ -48,7 +48,7 @@ class GuzzleHttpWrapper implements WrapperInterface
     /**
      * {@inheritdoc}
      */
-    public function get($url, $content)
+    public function get($url, $content = '')
     {
         $options = [];
         $options[is_array($content) ? 'json' : 'body'] = $content;
@@ -66,7 +66,7 @@ class GuzzleHttpWrapper implements WrapperInterface
     /**
      * {@inheritdoc}
      */
-    public function delete($url, $content)
+    public function delete($url, $content = '')
     {
         $options = [];
         $options[is_array($content) ? 'json' : 'body'] = $content;
